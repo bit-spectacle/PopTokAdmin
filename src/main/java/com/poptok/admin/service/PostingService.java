@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.poptok.admin.repository.PostingDao;
 import com.poptok.admin.util.PageParam;
 import com.poptok.admin.vo.LocationInfoVo;
+import com.poptok.admin.vo.PostVo;
 
 @Service
 public class PostingService {
@@ -19,4 +20,8 @@ public class PostingService {
 		return postingDao.getLocationlist(pageParam);
 	}
 
+	
+	public List<PostVo> getPostlist(PageParam pageParam) {
+		return postingDao.getPostlist(pageParam);
+	}
 }

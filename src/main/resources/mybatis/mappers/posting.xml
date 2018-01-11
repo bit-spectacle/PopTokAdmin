@@ -16,4 +16,20 @@
 		}
 		]]>
 	</select>
+	
+	<select id="getPostlist" parameterType="map" resultType="postvo" statementType="CALLABLE">
+		<![CDATA[
+		{
+			call P_LocationList
+			(
+			#{nowPage},
+			#{pageSize},
+			#{searchOption},
+			#{searchText},
+			#{totalCount, mode=OUT, jdbcType=INTEGER, javaType=int}
+			)
+		}
+		]]>
+	</select>
+	
 </mapper>

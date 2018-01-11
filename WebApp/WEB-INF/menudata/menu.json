@@ -8,7 +8,7 @@
 	},
 	{"url":"/admin/posting","caption":"포스팅관리","iconClass":"fa-wrench",
 	"subMenu":[
-			{"url":"/admin/posting/list","caption":"포스팅리스트","iconClass":"fa-dashboard"},
+			{"url":"/admin/posting/post","caption":"포스팅리스트","iconClass":"fa-dashboard"},
 			{"url":"/admin/posting/map","caption":"포스팅맵","iconClass":"fa-dashboard"},
 			{"url":"/admin/posting/location","caption":"장소리스트","iconClass":"fa-dashboard"}
 		]

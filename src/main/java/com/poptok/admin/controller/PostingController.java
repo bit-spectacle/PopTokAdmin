@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.poptok.admin.service.PostingService;
 import com.poptok.admin.util.PageParam;
 import com.poptok.admin.vo.LocationInfoVo;
+import com.poptok.admin.vo.PostVo;
 
 @Controller
 @RequestMapping("/posting")
@@ -22,6 +23,7 @@ public class PostingController {
 	@Autowired
 	private PostingService postingService;
 	
+	// 장소
 	@RequestMapping("location")
 	public String location(@ModelAttribute PageParam pageParam, Model model) {
 		
@@ -34,4 +36,20 @@ public class PostingController {
 		
 		return "posting/location";
 	}
+	
+	// 포스트
+	@RequestMapping("post")
+	public String post(@ModelAttribute PageParam pageParam, Model model) {
+		
+		System.out.println(pageParam);
+		//pageParam = new PageParam(1, 10, "newAddress", "영등포");
+		
+		List<PostVo> list = postingService.getPostlist(pageParam);
+		model.addAttribute("list", list);
+		model.addAttribute("pageParam", pageParam);
+		
+		return "posting/post";
+	}
+	
+	
 }

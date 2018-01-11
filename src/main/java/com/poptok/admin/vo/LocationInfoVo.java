@@ -2,23 +2,24 @@ package com.poptok.admin.vo;
 
 public class LocationInfoVo {
 	private int locationNo;
-	private String code; 
+	private String category; 
 	private String businessName; 
 	private String oldAddress; 
 	private String newAddress; 
 	private double latitude; 
 	private double longitude;
+	
 	public int getLocationNo() {
 		return locationNo;
 	}
 	public void setLocationNo(int locationNo) {
 		this.locationNo = locationNo;
 	}
-	public String getCode() {
-		return code;
+	public String getCategory() {
+		return category;
 	}
-	public void setCode(String code) {
-		this.code = code;
+	public void setCategory(String category) {
+		this.category = category;
 	}
 	public String getBusinessName() {
 		return businessName;

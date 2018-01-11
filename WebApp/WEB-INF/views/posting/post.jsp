@@ -16,24 +16,37 @@
 				<thead>
 					<tr>
 						<th>No</th>
-						<th>카테고리</th>
 						<th>상호명</th>
-						<th>지번 주소</th>
-						<th>도로명 주소</th>
+						<th>작성자</th>
+						<th>좋아요</th>
+						<th>댓글수</th>
+						<th>내용</th>
+						<th>이미지</th>
+						<th>카카오와<br/>연결</th>
+						<th>작성일자</th>
+						<th>해시태그</th>
 						<th>위도</th>
 						<th>경도</th>
+						<th>상태</th>
 					</tr>
 				</thead>
 				<tbody>
 				<c:forEach items="${list }"	var="vo" varStatus="status">
 					<tr>
-						<td>${vo.locationNo}</td>
-						<td>${vo.category}</td>
+						<td>${vo.postNo}</td>
 						<td>${vo.businessName}</td>
-						<td>${vo.oldAddress}</td>
-						<td>${vo.newAddress}</td>
+						<td>${vo.nickname}</td>
+						<td>${vo.viewsCnt}</td>
+						<td>${vo.likeCnt}</td>
+						<td>${vo.commentCnt}</td>
+						<td>${vo.content}</td>
+						<td>${vo.image}</td>
+						<td>${vo.kakaoLink}</td>
+						<td>${vo.postDate}</td>
+						<td>${vo.tag}</td>
 						<td>${vo.latitude}</td>
 						<td>${vo.longitude}</td>
+						<td>${vo.poststatus}</td>
 					</tr>
 				</c:forEach>
 				</tbody>
@@ -45,10 +58,10 @@
 					<input type="hidden" id="nowPage" value="${pageParam.nowPage} }"/>
 					<input type="hidden" id="pageSize" value="${pageParam.pageSize}"/>
 					<select class="form-control" name="searchOption" id="searchOption">
-						<option value="">= 선택 =</option>
+						<option value="">==선택==</option>
 						<option value="businessName">제목</option>
-						<option value="oldAddress">구주소</option>
-						<option value="newAddress">신주소</option>
+						<option value="oldAddress">구(지번)주소</option>
+						<option value="newAddress">신(도로명)주소</option>
 					</select>
 					<div class="input-group">
 						<input class="form-control" type="text" placeholder="Search for..." id="searchText" name="searchText" />
