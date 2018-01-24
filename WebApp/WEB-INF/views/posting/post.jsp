@@ -4,29 +4,23 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 
-
 <!-- Example DataTables Card-->
 <div class="card mb-3">
 	<div class="card-header">
-		<i class="fa fa-table"></i> Data Table Example
+		<i class="fa fa-table"></i> 포스팅 리스트
 	</div>
 	<div class="card-body">
 		<div class="table-responsive">
 			<table class="table table-bordered" width="100%" cellspacing="0">
 				<thead>
 					<tr>
-						<th>No</th>
-						<th>상호명</th>
-						<th>작성자</th>
-						<th>좋아요</th>
-						<th>댓글수</th>
+						<th width="70">No</th>
+						<th width="150">상호명</th>
+						<th width="120">작성자</th>
 						<th>내용</th>
-						<th>이미지</th>
-						<th>카카오와<br/>연결</th>
-						<th>작성일자</th>
-						<th>해시태그</th>
-						<th>위도</th>
-						<th>경도</th>
+						<th width="110">작성일자</th>
+						<th width="75">좋아요</th>
+						<th width="75">댓글수</th>
 						<th>상태</th>
 					</tr>
 				</thead>
@@ -34,19 +28,13 @@
 				<c:forEach items="${list }"	var="vo" varStatus="status">
 					<tr>
 						<td>${vo.postNo}</td>
-						<td>${vo.businessName}</td>
-						<td>${vo.nickname}</td>
-						<td>${vo.viewsCnt}</td>
+						<td name="shopname">${vo.businessName}</td>
+						<td name="nickname">${vo.nickname}</td>
+						<td name="content">${vo.content}</td>
+						<td>${vo.postDate}                                                                                                                                   </td>
+						<td>${vo.poststatus}</td>
 						<td>${vo.likeCnt}</td>
 						<td>${vo.commentCnt}</td>
-						<td>${vo.content}</td>
-						<td>${vo.image}</td>
-						<td>${vo.kakaoLink}</td>
-						<td>${vo.postDate}</td>
-						<td>${vo.tag}</td>
-						<td>${vo.latitude}</td>
-						<td>${vo.longitude}</td>
-						<td>${vo.poststatus}</td>
 					</tr>
 				</c:forEach>
 				</tbody>
@@ -59,9 +47,9 @@
 					<input type="hidden" id="pageSize" value="${pageParam.pageSize}"/>
 					<select class="form-control" name="searchOption" id="searchOption">
 						<option value="">==선택==</option>
-						<option value="businessName">제목</option>
-						<option value="oldAddress">구(지번)주소</option>
-						<option value="newAddress">신(도로명)주소</option>
+						<option value="businessName">상호명</option>
+						<option value="content">내용</option>
+						<option value="nickname">작성자</option>
 					</select>
 					<div class="input-group">
 						<input class="form-control" type="text" placeholder="Search for..." id="searchText" name="searchText" />
@@ -82,8 +70,22 @@
 </div>
 <script type="text/javascript">
 	$(document).ready(function(){
+
+		var rowLen = $("td[name='nickname']").length;
+		var colNickname = $("td[name='nickname']");
+		var colShopname = $("td[name='shopname']");
+		var colContent = $("td[name='content']");
+		
+		for(var i=0; i<rowLen; i++)
+		{
+			colNickname.eq(i).text( cutByte(colNickname.eq(i).text(), 10) );
+			colShopname.eq(i).text( cutByte(colShopname.eq(i).text(), 15) );
+			colContent.eq(i).text( cutByte(colContent.eq(i).text(), 40) );
+		}
+		
 		var totalPage = ${(pageParam.totalCount / pageParam.pageSize) + (1-((pageParam.totalCount / pageParam.pageSize) % 1) ) % 1};
 		var nowPage = ${pageParam.nowPage};
 		paging.init(totalPage, nowPage);
 	});
+
 </script>

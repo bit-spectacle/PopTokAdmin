@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+
 <div class="card card-login mx-auto mt-5">
 	<div class="card-header">Login</div>
 	<div class="card-body">
@@ -14,15 +16,36 @@
 			<div class="form-group">
 				<div class="form-check">
 					<label class="form-check-label">
-					<input class="form-check-input" type="checkbox"> Remember Password
+					<input class="form-check-input" type="checkbox" id="idsave" name="idsave"> Remember Email
 					</label>
 				</div>
 			</div>
-			<input type="submit" class="btn btn-primary btn-block" value="Login">
+			<input type="submit" id="btn_login" class="btn btn-primary btn-block" value="Login">
 		</form>
-		<div class="text-center">
+		<!-- div class="text-center">
 			<a class="d-block small mt-3" href="register.html">Register an Account</a> 
 			<a class="d-block small" href="forgot-password.html">Forgot Password?</a>
-		</div>
+		</div-->
 	</div>
 </div>
+
+<script type="text/javascript">
+
+	$(document).ready(function(){
+		
+ 		if ($.cookie("id")) 
+		{
+			$("#email").val($.cookie("id"));
+			$("#idsave").prop("checked", true);
+	    }
+ 		
+		$("#btn_login").on("click", function(){
+			if($("#idsave").prop("checked") == true) {
+				$.cookie("id", $("#email").val(), {expires:7, path:'/'});
+			} else {
+				$.removeCookie("id", {path:'/'});
+			}
+		}) 
+	})
+	
+</script>

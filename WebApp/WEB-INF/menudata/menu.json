@@ -2,8 +2,8 @@
 	{"url":"/admin/","caption":"DashBoard","iconClass":"fa-dashboard"},
 	{"url":"/admin/user","caption":"사용자관리","iconClass":"fa-dashboard",
 	"subMenu":[
-			{"url":"/admin/user/list","caption":"사용자리스트","iconClass":"fa-dashboard"},
-			{"url":"/admin/user/adminList","caption":"관리자리스트","iconClass":"fa-dashboard"}
+			{"url":"/admin/user/user","caption":"사용자리스트","iconClass":"fa-dashboard"},
+			{"url":"/admin/user/user?optParam=ADMIN","caption":"관리자리스트","iconClass":"fa-dashboard"}
 		]
 	},
 	{"url":"/admin/posting","caption":"포스팅관리","iconClass":"fa-wrench",

@@ -15,16 +15,20 @@
   <link href="${pageContext.request.contextPath }/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template-->
   <link href="${pageContext.request.contextPath }/assets/css/sb-admin.css" rel="stylesheet">
+  <!-- JavaScript-->
+  <script src="${pageContext.request.contextPath }/assets/vendor/jquery/jquery.min.js"></script>
+  <!-- Core plugin JavaScript-->
+  <script src="${pageContext.request.contextPath }/assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+  
+  <script src="${pageContext.request.contextPath }/assets/vendor/jquery/jquery.js"></script>
+  <script src="${pageContext.request.contextPath }/assets/vendor/jquery/jquery.cookie.js"></script>
 </head>
 <body class="bg-dark">
   <div class="container">
     <tiles:insertAttribute name="body" />
   </div>
   <!-- Bootstrap core JavaScript-->
-  <script src="${pageContext.request.contextPath }/assets/vendor/jquery/jquery.min.js"></script>
   <script src="${pageContext.request.contextPath }/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- Core plugin JavaScript-->
-  <script src="${pageContext.request.contextPath }/assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 </body>
 
 </html>

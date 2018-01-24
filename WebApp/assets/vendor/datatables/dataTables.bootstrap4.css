@@ -26,7 +26,7 @@ div.dataTables_wrapper div.dataTables_length label {
 }
 div.dataTables_wrapper div.dataTables_length select {
   width: 75px;
-  display: inline-block;
+  display: inline-block;?
 }
 div.dataTables_wrapper div.dataTables_filter {
   text-align: right;
@@ -35,6 +35,7 @@ div.dataTables_wrapper div.dataTables_filter label {
   font-weight: normal;
   white-space: nowrap;
   text-align: left;
+   
 }
 div.dataTables_wrapper div.dataTables_filter input {
   margin-left: 0.5em;

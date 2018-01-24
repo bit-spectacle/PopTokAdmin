@@ -9,8 +9,10 @@ paging = {
 		 
 		var searchOption = $.urlParam("searchOption");
 		var searchText = decodeURI($.urlParam("searchText"));
+		var optParam = decodeURI($.urlParam("optParam"));
 		$("#searchOption").val(searchOption).change();
 		$("#searchText").val(searchText);
+		$("#optParam").val(optParam);
 		
 		// 페이징 그리기
 		$('#' + this.pagerId).bootpag({
@@ -52,13 +54,15 @@ paging = {
 		var pageSize = $("#pageSize").val();
 		var searchOption = $("#searchOption").val();
 		var searchText = $("#searchText").val();
+		var optParam = $("#optParam").val();
 		if(searchText.length > 0 && searchOption.length == 0) {
 			alert('검색조건을 선택해주세요.');
 			$("#searchOption").focus();
 			return;
 		}
 		
-		var parameter = "?nowPage=" + num + "&pageSize=" + pageSize + "&searchOption=" + searchOption + "&searchText=" + searchText;
+		var parameter = "?nowPage=" + num + "&pageSize=" + pageSize + "&searchOption=" + searchOption 
+						+ "&searchText=" + searchText + "&optParam=" + optParam;
 		location.href = $(location).attr('pathname') + parameter;
 	}
 }

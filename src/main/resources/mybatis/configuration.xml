@@ -6,6 +6,7 @@
 		<typeAlias alias="categoryvo" type="com.poptok.admin.vo.CategoryVo"></typeAlias>
 		<typeAlias alias="locationinfovo" type="com.poptok.admin.vo.LocationInfoVo"></typeAlias>
 		<typeAlias alias="postvo" type="com.poptok.admin.vo.PostVo"></typeAlias>
+		<typeAlias alias="statisticsvo" type="com.poptok.admin.vo.StatisticsVo"></typeAlias>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mybatis/mappers/user.xml" />

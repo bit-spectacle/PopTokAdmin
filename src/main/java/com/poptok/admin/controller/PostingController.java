@@ -40,7 +40,7 @@ public class PostingController {
 	// 포스트
 	@RequestMapping("post")
 	public String post(@ModelAttribute PageParam pageParam, Model model) {
-		
+
 		System.out.println(pageParam);
 		//pageParam = new PageParam(1, 10, "newAddress", "영등포");
 		

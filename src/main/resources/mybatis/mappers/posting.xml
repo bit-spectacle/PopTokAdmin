@@ -2,6 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="posting">
+
+	<!-- 대시보드(포스팅 통계) -->
+	<select id="getDashboard" resultType="statisticsvo">
+		<![CDATA[
+		SELECT	COUNT(*) AS totalCnt,
+				SUM(CASE WHEN DATE_FORMAT(now(),'%Y-%m-%d') = DATE_FORMAT(postDate,'%Y-%m-%d') 
+					THEN 1 ELSE 0 END) AS todayCnt
+		FROM	post
+		]]>
+	</select>
+	
+	
 	<select id="getLocationlist" parameterType="map" resultType="locationinfovo" statementType="CALLABLE">
 		<![CDATA[
 		{
@@ -11,6 +23,8 @@
 			#{pageSize},
 			#{searchOption},
 			#{searchText},
+			#{optParam},
+			#{orderBy},
 			#{totalCount, mode=OUT, jdbcType=INTEGER, javaType=int}
 			)
 		}
@@ -20,12 +34,14 @@
 	<select id="getPostlist" parameterType="map" resultType="postvo" statementType="CALLABLE">
 		<![CDATA[
 		{
-			call P_LocationList
+			call P_PostList
 			(
 			#{nowPage},
 			#{pageSize},
 			#{searchOption},
 			#{searchText},
+			#{optParam},
+			#{orderBy},
 			#{totalCount, mode=OUT, jdbcType=INTEGER, javaType=int}
 			)
 		}

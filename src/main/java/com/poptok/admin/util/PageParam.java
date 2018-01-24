@@ -7,22 +7,32 @@ public class PageParam {
 	private String searchText;
 	private int totalCount;
 	
+	private String optParam;
+	private String orderBy;
+	
+	
 	public PageParam() {
 		this.nowPage = "1";
 		this.pageSize = "10";
 		this.searchOption = "";
 		this.searchText = "";
 		this.totalCount = 0;
+		this.optParam = "";
+		this.orderBy = "DESC";
 	}
 	
-	public PageParam(String nowPage, String pageSize, String searchOption, String searchText) {
+	public PageParam(String nowPage, String pageSize, String searchOption, String searchText, 
+					String optParam, String orderBy) {
 		super();
 		this.nowPage = nowPage;
 		this.pageSize = pageSize;
 		this.searchOption = searchOption;
 		this.searchText = searchText;
 		this.totalCount = 0;
+		this.optParam = optParam;
+		this.orderBy = orderBy;
 	}
+	
 	public String getNowPage() {
 		return nowPage;
 	}
@@ -54,17 +64,33 @@ public class PageParam {
 		this.totalCount = totalCount;
 	}
 
+	public String getOptParam() {
+		return optParam;
+	}
+	public void setOptParam(String optParam) {
+		this.optParam = optParam;
+	}	
+	public String getOrderBy() {
+		return orderBy;
+	}
+	public void setOrderBy(String orderBy) {
+		this.orderBy = orderBy;
+	}
+
 	@Override
 	public String toString() {
 		return "PageParam [nowPage=" + nowPage + ", pageSize=" + pageSize + ", searchOption=" + searchOption
-				+ ", searchText=" + searchText + ", totalCount=" + totalCount + "]";
+				+ ", searchText=" + searchText + ", totalCount=" + totalCount + ", optParam=" + optParam 
+				+ ", orderBy=" + orderBy + "]";
 	}
 	
 	public String toParameter() {
-		return String.format("nowPage={0}&pageSize={1}&searchOption={2}&searchText={3}",
+		return String.format("nowPage={0}&pageSize={1}&searchOption={2}&searchText={3}&optParam={4}&orderBy={5}",
 				nowPage,
 				pageSize,
 				searchOption,
-				searchText);
+				searchText,
+				optParam,
+				orderBy);
 	}
 }

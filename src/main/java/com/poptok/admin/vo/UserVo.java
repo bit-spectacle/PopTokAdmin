@@ -1,13 +1,17 @@
 package com.poptok.admin.vo;
 
 public class UserVo {
+	
 	private int userNo;
 	private String email;
 	private String nickname;
 	private String password;
 	private String role;
-	private String joinDate;
+	private String joindate;
 	private String lastlogin;
+	private String status;
+	
+	
 	public int getUserNo() {
 		return userNo;
 	}
@@ -38,11 +42,11 @@ public class UserVo {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	public String getJoinDate() {
-		return joinDate;
+	public String getJoindate() {
+		return joindate;
 	}
-	public void setJoinDate(String joinDate) {
-		this.joinDate = joinDate;
+	public void setJoindate(String joindate) {
+		this.joindate = joindate;
 	}
 	public String getLastlogin() {
 		return lastlogin;
@@ -50,10 +54,17 @@ public class UserVo {
 	public void setLastlogin(String lastlogin) {
 		this.lastlogin = lastlogin;
 	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
 	@Override
 	public String toString() {
 		return "UserVo [userNo=" + userNo + ", email=" + email + ", nickname=" + nickname + ", password=" + password
-				+ ", role=" + role + ", joinDate=" + joinDate + ", lastlogin=" + lastlogin + "]";
+				+ ", role=" + role + ", joindate=" + joindate + ", lastlogin=" + lastlogin + "]";
 	}
 	
 }
