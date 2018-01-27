@@ -46,7 +46,7 @@
 		<!-- logout button-->
 		<ul class="navbar-nav ml-auto">
 			<li class="nav-item">
-					<a class="nav-link" href="javascript:modal.show('exampleModal', 'Logout 하시겠습니까?', '세션에서 로그아웃 하시려면 아래 Logout 버튼을 누르세요.', '/admin/user/logout');">
+					<a class="nav-link" href="javascript:modal.show('exampleModal', 'Logout 하시겠습니까?', '세션에서 로그아웃 하시려면 아래 Logout 버튼을 누르세요.', '/admin/user/logout' ,'확인');">
 					<i class="fa fa-fw fa-sign-out"></i>Logout
 				</a>
 			</li>

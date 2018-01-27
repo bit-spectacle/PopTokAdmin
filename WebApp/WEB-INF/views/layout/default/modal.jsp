@@ -13,7 +13,7 @@
 			</div>
 			<div class="modal-footer">
 				<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-				<a id="btnModal" class="btn btn-primary" href="login.html">확인</a-->
+				<a id="btnModal" class="btn btn-primary" href="login.html"></a>
 			</div>
 		</div>
 	</div>
