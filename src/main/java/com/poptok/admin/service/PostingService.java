@@ -32,5 +32,9 @@ public class PostingService {
 		return postingDao.getPostlist(pageParam);
 	}
 	
+	public List<String> getPostTagList() {
+		return postingDao.getPostTagList();
+	}
+	
 
 }

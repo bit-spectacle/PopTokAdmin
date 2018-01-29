@@ -74,6 +74,6 @@
         <property name="order" value="2"/>
     </bean>
     
-    <mvc:resources mapping="/menudata/**" location="/menudata/" />
+    <mvc:resources mapping="/menudata/**" location="/menudata/" />	
     
 </beans>

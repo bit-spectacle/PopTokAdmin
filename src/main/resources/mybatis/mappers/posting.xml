@@ -48,4 +48,14 @@
 		]]>
 	</select>
 	
+	<select id="getPostTagList" resultType="string">
+		<![CDATA[
+		select tag 
+		from post 
+		where tag != ''
+		order by postno desc
+		limit 1000
+		]]>
+	</select>
+	
 </mapper>

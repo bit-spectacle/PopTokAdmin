@@ -18,5 +18,10 @@
 			{"url":"/admin/recommend/hash","caption":"추천해시","iconClass":"fa-dashboard"},
 			{"url":"/admin/recommend/route","caption":"추천경로","iconClass":"fa-dashboard"}
 		]
+	},
+	{"url":"/admin/redis","caption":"REDIS관리","iconClass":"fa-dashboard",
+	"subMenu":[
+			{"url":"/admin/redis/client","caption":"클라이언트","iconClass":"fa-dashboard"}
+		]
 	}
 ]

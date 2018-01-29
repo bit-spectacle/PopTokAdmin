@@ -11,6 +11,7 @@ import com.poptok.admin.util.PageParam;
 import com.poptok.admin.vo.LocationInfoVo;
 import com.poptok.admin.vo.PostVo;
 import com.poptok.admin.vo.StatisticsVo;
+import com.poptok.admin.vo.UserVo;
 
 @Repository
 public class PostingDao {
@@ -55,6 +56,11 @@ public class PostingDao {
 		List<PostVo> list = sqlSession.selectList("posting.getPostlist", map);
 		int totalCount = Integer.parseInt(map.get("totalCount").toString());
 		pageParam.setTotalCount(totalCount);
+		return list;
+	}
+	
+	public List<String> getPostTagList() {
+		List<String> list = sqlSession.selectList("posting.getPostTagList");
 		return list;
 	}
 
