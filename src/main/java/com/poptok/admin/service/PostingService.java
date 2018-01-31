@@ -36,5 +36,13 @@ public class PostingService {
 		return postingDao.getPostTagList();
 	}
 	
-
+	public boolean deletePostData(String startPk, String endPk, String deleteTag) {
+		
+		boolean returnVal = false;
+		if(startPk.trim()=="" && endPk.trim()=="" && deleteTag.trim()=="")
+			returnVal = false;
+		
+		return postingDao.deletePostData(startPk, endPk, deleteTag);
+		
+	}
 }

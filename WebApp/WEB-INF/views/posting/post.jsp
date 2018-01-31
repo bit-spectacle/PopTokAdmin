@@ -47,9 +47,9 @@
 					<input type="hidden" id="pageSize" value="${pageParam.pageSize}"/>
 					<select class="form-control" name="searchOption" id="searchOption">
 						<option value="">==선택==</option>
-						<option value="businessName">상호명</option>
-						<option value="content">내용</option>
-						<option value="nickname">작성자</option>
+						<option value="li.businessName">상호명</option>
+						<option value="p.content">내용</option>
+						<option value="u.nickname">작성자</option>
 					</select>
 					<div class="input-group">
 						<input class="form-control" type="text" placeholder="Search for..." id="searchText" name="searchText" />

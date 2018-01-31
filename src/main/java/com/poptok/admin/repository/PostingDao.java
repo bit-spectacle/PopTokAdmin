@@ -63,5 +63,21 @@ public class PostingDao {
 		List<String> list = sqlSession.selectList("posting.getPostTagList");
 		return list;
 	}
+	
+	
+	public boolean deletePostData(String startPk, String endPk, String deleteTag) {
+		String strSqlWhere = "";
+//		if(startPk != null && startPk.trim() != "")
+//			strSqlWhere += " AND postNo >= " + startPk;
+//		if(endPk != null && endPk.trim() != "")
+//			strSqlWhere += " AND postNo <= " + endPk;
+//		if(deleteTag != null && deleteTag.trim() != "")
+//			strSqlWhere += " AND tag like '%" + deleteTag + "%' ";
+		strSqlWhere = startPk;
+		
+		int result = sqlSession.delete("posting.deletePost", strSqlWhere);
+
+		return result==0?true:false;
+	}
 
 }

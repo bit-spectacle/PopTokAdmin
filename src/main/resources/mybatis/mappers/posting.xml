@@ -58,4 +58,14 @@
 		]]>
 	</select>
 	
+	<delete id="deletePost" parameterType="java.lang.String">
+		<![CDATA[
+		DELETE
+		FROM	post
+		WHERE	1 = 1
+			AND	postNo >= #{postNo}
+		
+		]]>
+	</delete>
+	
 </mapper>

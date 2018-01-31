@@ -9,14 +9,7 @@
 	{"url":"/admin/posting","caption":"포스팅관리","iconClass":"fa-wrench",
 	"subMenu":[
 			{"url":"/admin/posting/post","caption":"포스팅리스트","iconClass":"fa-dashboard"},
-			{"url":"/admin/posting/map","caption":"포스팅맵","iconClass":"fa-dashboard"},
 			{"url":"/admin/posting/location","caption":"장소리스트","iconClass":"fa-dashboard"}
-		]
-	},
-	{"url":"/admin/recommend","caption":"추천관리","iconClass":"fa-dashboard",
-	"subMenu":[
-			{"url":"/admin/recommend/hash","caption":"추천해시","iconClass":"fa-dashboard"},
-			{"url":"/admin/recommend/route","caption":"추천경로","iconClass":"fa-dashboard"}
 		]
 	},
 	{"url":"/admin/redis","caption":"REDIS관리","iconClass":"fa-dashboard",

@@ -30,7 +30,8 @@ public class RedisService {
 		redisTemplate.setKeySerializer(new StringRedisSerializer());
 		redisTemplate.setValueSerializer(new StringRedisSerializer());
 		
-		Set<ZSetOperations.TypedTuple<String>> set = zsetOperations.reverseRangeWithScores(tagKey, 0, 100);
+		// 0~99까지 총 100개 row 읽어오기
+		Set<ZSetOperations.TypedTuple<String>> set = zsetOperations.reverseRangeWithScores(tagKey, 0, 99);
 		List<TagVo> list = new ArrayList<>(set.size());
 		for(ZSetOperations.TypedTuple<String> vo : set ) {
 			String tag = vo.getValue();
@@ -46,10 +47,18 @@ public class RedisService {
 	}
 
 
+	// Redis 메모리에 태그 추가
 	public void AddTag(String tag, int count) {
 		redisTemplate.setKeySerializer(new StringRedisSerializer());
 		redisTemplate.setValueSerializer(new StringRedisSerializer());
 		zsetOperations.add(tagKey, tag, count);
+	}
+	
+
+	// Redis 메모리 비우기(메모리에 있는 태그 삭제)
+	public void blankTag() {
+		redisTemplate.delete(tagKey);
+		//zsetOperations.
 	}
 
 }

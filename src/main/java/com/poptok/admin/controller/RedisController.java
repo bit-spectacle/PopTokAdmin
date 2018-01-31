@@ -17,6 +17,8 @@ import com.poptok.admin.service.PostingService;
 import com.poptok.admin.service.RedisService;
 import com.poptok.admin.vo.TagVo;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
+
 @Controller
 @RequestMapping("/redis")
 @Auth(role=Auth.Role.ADMIN)
@@ -51,7 +53,7 @@ public class RedisController {
 		String tags = String.join("", list);
 		tags = tags.replaceAll("#", "").replaceAll(" ", "");
 		List<String> taglist = Arrays.asList(tags.split(","));
-
+		
 		Map<Object, Long> nameCount = taglist.stream().collect(Collectors.groupingBy(string -> string, Collectors.counting()));
 		nameCount.forEach((name, count) -> {
 			if(name != null && name != "") {
@@ -59,8 +61,27 @@ public class RedisController {
 			}
         });
 		
-		
 		return "redirect:/redis/client";
 	}
 
+	
+	@RequestMapping("blank")
+	public String blank(Model model) {
+		redisService.blankTag();
+		
+		return "redirect:/redis/client";
+	}
+	
+	
+	@RequestMapping("delete")
+	public String delete(Model model) {
+		boolean result = postingService.deletePostData("41712", "", "");
+		
+		String msg = "";
+		if(result) msg = "삭제되었습니다.";
+		else msg = "실패하였습니다.";
+		model.addAttribute( "deleteResult", msg);
+		
+		return "redis/client";
+	}
 }

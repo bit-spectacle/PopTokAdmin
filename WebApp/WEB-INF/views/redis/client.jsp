@@ -11,7 +11,14 @@
 		<i class="fa fa-table"></i> 포스팅 리스트
 	</div>
 	<div class="card-body">
-
+		<form id="redisForm" action="${pageContext.request.contextPath }/redis/init" method="post">
+			<input type="button" class="btn" id="btn_reset" value="초기화" />&nbsp;
+			<input type="button" class="btn" id="btn_reload" value="새로고침" />&nbsp;
+			<input type="button" class="btn" id="btn_blank" value="메모리 비우기" />&nbsp;
+			<input type="button" class="btn" id="btn_delete" value="임의데이터 삭제" />&nbsp;
+			<input type="hidden" id="deleteResult" value="${deleteResult}" />
+		</form>
+		<br/>
 		<table class="table table-bordered" cellspacing="0">
 			<thead>
 				<tr>
@@ -31,8 +38,34 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		<form action="${pageContext.request.contextPath }/redis/init" method="post">
-			<input type="submit" value="초기화">
-		</form>
+		
 	</div>
 </div>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+	resultMsg = $("#deleteResult").val();
+	if(resultMsg != "") alert($("#deleteResult").val());
+	
+	// 초기화 버튼 클릭 시
+	$("#btn_reset").click(function() {
+		$("#redisForm").attr("action", "${pageContext.request.contextPath }/redis/init").submit();
+	})
+	
+	// 새로고침 버튼 클릭 시
+	$("#btn_reload").on('click', function() {
+		location.reload();		
+	})
+	
+	// 비우기 버튼 클릭 시
+	$("#btn_blank").on('click', function() {
+		$("#redisForm").attr("action", "${pageContext.request.contextPath }/redis/blank").submit();
+	})
+	
+	// 임의데이터삭제 버튼 클릭 시
+	$("#btn_delete").on('click', function() {
+		$("#redisForm").attr("action", "${pageContext.request.contextPath }/redis/delete").submit();
+	})
+})
+</script>
